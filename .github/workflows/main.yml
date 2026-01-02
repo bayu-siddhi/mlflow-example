@@ -42,5 +42,7 @@ jobs:
 
       # Run as a mlflow project
       - name: Run mlflow project
+        env:
+            MLFLOW_TRACKING_URI: sqlite:///mlflow.db
         run: |
           mlflow run Project --env-manager=local
