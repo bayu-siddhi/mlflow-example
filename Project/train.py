@@ -16,10 +16,12 @@ import mlflow
 import mlflow.sklearn
 
 
-# mlflow.set_tracking_uri("sqlite:///../mlflow.db")
-# mlflow.set_experiment("my-first-experiment")
+if not os.environ.get("MLFLOW_TRACKING_URI", None):
+    from dotenv import load_dotenv
+    load_dotenv()
+
+mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
-# print(f"Active Experiment: {mlflow.get_experiment_by_name('my-first-experiment')}")
 
 
 def eval_metrics(actual, pred):
