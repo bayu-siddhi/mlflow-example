@@ -16,12 +16,17 @@ import mlflow
 import mlflow.sklearn
 
 
+# mlflow.set_tracking_uri("sqlite:///../mlflow.db")
+# mlflow.set_experiment("my-first-experiment")
+print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
+# print(f"Active Experiment: {mlflow.get_experiment_by_name('my-first-experiment')}")
+
+
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
-
 
 
 if __name__ == "__main__":
