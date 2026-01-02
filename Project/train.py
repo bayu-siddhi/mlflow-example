@@ -26,7 +26,7 @@ def eval_metrics(actual, pred):
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
-    np.random.seed(40)
+    np.random.seed(42)
 
     # Read the wine-quality csv file (make sure you're running this from the root of MLflow!)
     wine_path = sys.argv[3] if len(sys.argv) > 3 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "wine-quality.csv")
